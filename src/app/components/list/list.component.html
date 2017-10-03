@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <td>Set Type</td>
+        <td>Name</td>
+        <td>Case Type</td>
+        <td>Device Type</td>
+        <td>Procedure Type</td>
+    </thead>
+    <tr *ngFor="let set of data">
+        <td>{{ set.setType }}</td>
+        <td>{{ set.name }}</td>
+        <td>{{ set.caseType }}</td>
+        <td>{{ set.deviceType }}</td>
+        <td>{{ set.procedureType }}</td>
+    </tr>
+</table>

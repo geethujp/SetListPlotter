@@ -3,6 +3,7 @@ const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 var helpers = require('./helpers');
 
 module.exports = {
@@ -54,6 +55,11 @@ module.exports = {
             helpers.root('./src'), // location of your src
             {} // a map of your routes
         ),
+
+        new CopyWebpackPlugin([{
+            from: 'src/assets/json',
+            to: 'assets/json'
+        }]),
 
         new webpack.optimize.CommonsChunkPlugin({ // This will remove the shared dependency among app, vendor, and polyfills
             name: ['app', 'vendor', 'polyfills']
